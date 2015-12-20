@@ -9,7 +9,7 @@ Install the environment dependencies of React development, transpile our code, a
 - Write a Hello World component and view it in a browser
 
 ### Step1: write for package.json
-	$ cd 文件夹路径
+	$ cd [folder route]
 	$ **npm init**
 
 - Input following information:   
@@ -32,8 +32,8 @@ Browserify lets you require(‘modules’) in the browser by bundling up all of 
 
 OPEN package.json and add the “build” with following content:
 	“scripts”: {
-		“test”: “echo \”Error: no test specified\” && exit 1”,
-		**”build”: “browserify -t [ babelify —presets [ react ] ] src/main.js -o public/bundle.js”**
+	“test”: “echo \”Error: no test specified\” && exit 1”,
+	**”build”: “browserify -t [ babelify —presets [ react ] ] src/main.js -o public/bundle.js”**
 	}
 - I update this command based on the [Install ReactJS from NPM - react docs](https://facebook.github.io/react/docs/getting-started.html)
   
