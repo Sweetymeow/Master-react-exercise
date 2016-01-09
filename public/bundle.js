@@ -18934,65 +18934,104 @@ var App = React.createClass({
         return React.createElement(
             'div',
             { className: 'app' },
+            React.createElement(MainHeader, null),
             React.createElement(
-                'h4',
-                { className: 'hint' },
-                'This is react class access their text attribute with ',
-                React.createElement(
-                    'b',
-                    null,
-                    'this.props.text:'
-                )
-            ),
-            React.createElement(
-                'h3',
+                Page,
                 null,
-                ' ',
-                this.props.text
-            ),
-            React.createElement(
-                'h4',
-                { className: 'hint' },
-                'This is react class access their children with ',
-                React.createElement(
-                    'b',
-                    null,
-                    'this.props.children:'
-                ),
-                ' '
-            ),
-            React.createElement(
-                'p',
-                null,
-                this.props.children
+                React.createElement(Orders, null)
             )
         );
     }
 });
 
-ReactDOM.render(React.createElement(
-    'div',
-    null,
-    React.createElement(
-        App,
-        { text: 'Hello World' },
-        'This is first APP Component '
-    ),
-    React.createElement(
-        App,
-        { text: 'How are your?' },
-        ' This is Second APP Component '
-    ),
-    React.createElement(
-        App,
-        { text: 'Goodbay' },
-        'This is Third APP Component '
-    )
-), document.getElementById('anchor'));
-//ReactDOM.render(
-//  <h1>Hello, world!</h1>,
-//  document.getElementById('anchor')
-//);
+var MainHeader = React.createClass({
+    displayName: 'MainHeader',
+
+    render: function () {
+        return React.createElement(
+            'div',
+            { className: 'main-header' },
+            React.createElement(
+                'div',
+                { className: 'logo' },
+                'Storekeeper'
+            ),
+            React.createElement(MainNav, null)
+        );
+    }
+});
+
+var MainNav = React.createClass({
+    displayName: 'MainNav',
+
+    render: function () {
+        return React.createElement(
+            'nav',
+            { className: 'main-nav' },
+            React.createElement(
+                'a',
+                null,
+                'Dashboard'
+            ),
+            React.createElement(
+                'a',
+                { className: 'current' },
+                'Orders'
+            ),
+            React.createElement(
+                'a',
+                null,
+                'Catalog'
+            )
+        );
+    }
+});
+
+var Orders = React.createClass({
+    displayName: 'Orders',
+
+    render: function () {
+        return React.createElement(
+            'div',
+            { className: 'orders' },
+            React.createElement(
+                PageHeader,
+                null,
+                React.createElement(
+                    'h1',
+                    null,
+                    'Orders'
+                )
+            )
+        );
+    }
+});
+
+var Page = React.createClass({
+    displayName: 'Page',
+
+    render: function () {
+        return React.createElement(
+            'div',
+            { className: 'page' },
+            this.props.children
+        );
+    }
+});
+
+var PageHeader = React.createClass({
+    displayName: 'PageHeader',
+
+    render: function () {
+        return React.createElement(
+            'header',
+            { className: 'page-header' },
+            this.props.children
+        );
+    }
+});
+
+ReactDOM.render(React.createElement(App, null), document.getElementById('anchor'));
 
 },{"react":157,"react-dom":1}],159:[function(require,module,exports){
 // shim for using process in browser

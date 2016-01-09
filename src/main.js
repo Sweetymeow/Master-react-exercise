@@ -5,24 +5,68 @@ var App = React.createClass({
     render: function() {
         return (
           <div className="app">
-            <h4 className="hint">This is react class access their text attribute with <b>this.props.text:</b></h4>
-            <h3> {this.props.text}</h3>
-            <h4 className="hint">This is react class access their children with <b>this.props.children:</b> </h4>
-            <p>{this.props.children}</p>
+            <MainHeader />
+            <Page>
+                <Orders />
+            </Page>
           </div>
         );
     }
 });
 
-ReactDOM.render(
-    <div> 
-        <App text = "Hello World">This is first APP Component </App>   
-        <App text = "How are your?"> This is Second APP Component </App>    
-        <App text = "Goodbay">This is Third APP Component </App>
-    </div>,        
-    document.getElementById('anchor')
-);
-//ReactDOM.render(
-//  <h1>Hello, world!</h1>,
-//  document.getElementById('anchor')
-//);
+var MainHeader = React.createClass({
+    render: function(){
+        return (
+          <div className='main-header'>
+            <div className='logo'>Storekeeper</div>
+            <MainNav />
+          </div>
+        );
+    }
+});
+
+var MainNav = React.createClass({
+    render: function(){
+        return (
+          <nav className='main-nav'>
+            <a>Dashboard</a>
+            <a className='current'>Orders</a>
+            <a>Catalog</a>
+          </nav>
+        );
+    }
+});
+
+var Orders = React.createClass({
+    render: function(){
+        return (
+          <div className='orders'>
+            <PageHeader>
+                <h1>Orders</h1>
+            </PageHeader>
+          </div>
+        );
+    }
+});
+
+var Page = React.createClass({
+    render: function(){
+        return (
+          <div className='page'>
+            {this.props.children}
+          </div>
+        );
+    }
+});
+
+var PageHeader = React.createClass({
+    render: function(){
+        return (
+          <header className='page-header'>
+            {this.props.children}
+          </header>
+        );
+    }
+});
+
+ReactDOM.render(<App />, document.getElementById('anchor'));
